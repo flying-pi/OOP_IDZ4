@@ -9,31 +9,25 @@ int main() {
     cin >> size;
     short *array = new short[size];
     MyArray object(array, size);
-
-    //object.generationElements();
-    object.inputFromKeyboard();
-
-    for(int i = 0 ; i< size;i++){
-        cout << array[i] << " ";
-    }
+    object.output << "Input size of array: ";
+    object.output << size << '\n';
+    object.generationElements();
+    //object.inputFromKeyboard();
+    object.outputArray();
     cout << '\n';
     cout << "max element: ";
     cout << object.maxElementOfArray() << '\n';
     cout << "min element: ";
     cout << object.minElementOfArray() << '\n';
-
-//    object.bubbleSortInc();
-//    for(int i = 0 ; i< size;i++){
-//        cout << array[i] << " ";
-//    }
-//    cout << '\n';
-//    object.bubbleSortDec();
-//
-//    for(int i = 0 ; i< size;i++){
-//        cout << array[i] << " ";
-//    }
-//
-//    cout << '\n';
+    object.output << '\n';
+    object.output << "max element: ";
+    object.output << object.maxElementOfArray() << '\n';
+    object.output << "min element: ";
+    object.output << object.minElementOfArray() << '\n';
     object.isPalindrome();
+    object.bubbleSortInc();
+    object.outputArray();
+    object.bubbleSortDec();
+    object.outputArray();
     return 0;
 }

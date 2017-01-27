@@ -6,19 +6,34 @@
 #define OOP_IDZ4_MYARRAY_H
 
 
+#include <fstream>
+
 class MyArray {
 
 public:
-    MyArray(short int * array, int size);
+    MyArray(short int *array, int size);
+
     void inputFromKeyboard();
+
     void generationElements();
+
     int minElementOfArray();
+
     int maxElementOfArray();
+
     void bubbleSortInc();
+
     void bubbleSortDec();
+
     ~MyArray();
+
     void isPalindrome();
+
+    void outputArray();
+
+    std::ofstream output;
 private:
+
     short *array;
     int size;
 };
