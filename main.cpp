@@ -11,7 +11,7 @@ int main() {
     MyArray object(array, size);
     object.output << "Input size of array: ";
     object.output << size << '\n';
-    object.generationElements();
+	object.generationElements();
     //object.inputFromKeyboard();
     object.outputArray();
     cout << '\n';
@@ -29,5 +29,7 @@ int main() {
     object.outputArray();
     object.bubbleSortDec();
     object.outputArray();
+	object.getSum();
+	system("pause");
     return 0;
 }

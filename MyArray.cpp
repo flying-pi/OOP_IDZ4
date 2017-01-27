@@ -4,13 +4,14 @@
 
 #include <iostream>
 #include "MyArray.h"
+#include <ctime>
 
 using namespace std;
 
 MyArray::MyArray(short int *array, int size) {
     this->array = array;
     this->size = size;
-    output.open("/home/andrey/CLionProjects/OOP_IDZ4(2)/result.txt");
+    output.open("./result.txt");
     if(!(output.is_open())) {
         output << "Error opening file!";
         cout << "Error opening file!";
@@ -36,7 +37,7 @@ void MyArray::generationElements() {
     }
 }
 
-int MyArray::minElementOfArray() {
+short int MyArray::minElementOfArray() {
     int max = this->array[0];
     for (int i = 0; i < this->size; i++)
         if (this->array[i] > max)
@@ -44,7 +45,7 @@ int MyArray::minElementOfArray() {
     return max;
 }
 
-int MyArray::maxElementOfArray() {
+short int MyArray::maxElementOfArray() {
     int min = this->array[0];
     for (int i = 0; i < this->size; i++)
         if (this->array[i] < min)
@@ -108,4 +109,37 @@ void MyArray::outputArray() {
     cout << '\n';
     output << '\n';
 
+}
+
+short int MyArray::
+getSum()
+{
+	short int result = 0;
+	for (int i = 0;i < size;i++) {
+		short int a = array[i];
+		char isOverflow = 0;
+		cout << result << endl;
+		__asm
+		{
+			mov ax, a
+			mov cx, result
+			add ax, cx
+			jo overwlow
+			mov result, ax
+			jmp done
+			overwlow :
+			mov isOverflow, 1
+				done :
+
+		}
+		if (isOverflow == 1) {
+			cout << "catch overflow when calculate sum of array items\n";
+			output << "catch overflow when calculate sum of array items\n";
+			return result;
+		}
+	
+	}
+	cout << "sum of array == " << result << "\n";
+	output << "sum of array == " << result << "\n";
+	return 0;
 }

@@ -17,9 +17,9 @@ public:
 
     void generationElements();
 
-    int minElementOfArray();
+	short int minElementOfArray();
 
-    int maxElementOfArray();
+	short int maxElementOfArray();
 
     void bubbleSortInc();
 
@@ -30,6 +30,8 @@ public:
     void isPalindrome();
 
     void outputArray();
+
+	short int getSum();
 
     std::ofstream output;
 private:
