@@ -29,25 +29,25 @@ void MyArray::generationElements() {
 
 int MyArray::minElementOfArray() {
     int max = this->array[0];
-    for(int i = 0; i < this->size;i++)
-        if(this->array[i] > max)
+    for (int i = 0; i < this->size; i++)
+        if (this->array[i] > max)
             max = this->array[i];
     return max;
 }
 
 int MyArray::maxElementOfArray() {
     int min = this->array[0];
-    for(int i = 0; i < this->size;i++)
-        if(this->array[i] < min)
+    for (int i = 0; i < this->size; i++)
+        if (this->array[i] < min)
             min = this->array[i];
     return min;
 }
 
 void MyArray::bubbleSortInc() {
     int tmp = 0;
-    for(int i = 0; i < this->size; i++){
-        for(int j = 0; j < this->size -1; j++){
-            if(this->array[i] < this->array[j]){
+    for (int i = 0; i < this->size; i++) {
+        for (int j = 0; j < this->size - 1; j++) {
+            if (this->array[i] < this->array[j]) {
                 tmp = this->array[i];
                 this->array[i] = this->array[j];
                 this->array[j] = tmp;
@@ -58,13 +58,31 @@ void MyArray::bubbleSortInc() {
 
 void MyArray::bubbleSortDec() {
     int tmp = 0;
-    for(int i = 0; i < this->size; i++){
-        for(int j = 0; j < this->size -1; j++){
-            if(this->array[i] > this->array[j]){
+    for (int i = 0; i < this->size; i++) {
+        for (int j = 0; j < this->size - 1; j++) {
+            if (this->array[i] > this->array[j]) {
                 tmp = this->array[i];
                 this->array[i] = this->array[j];
                 this->array[j] = tmp;
             }
         }
     }
+}
+
+MyArray::~MyArray() {
+    delete[] this->array;
+
+}
+
+void MyArray::isPalindrome() {
+    bool tmp = true;
+    for (int leftPos = 0, rightPos = this->size - 1; leftPos < this->size / 2; leftPos++, rightPos--) {
+        if (this->array[leftPos] != this->array[rightPos]) {
+            tmp = false;
+            cout << "Not palindrome";
+            break;
+        }
+    }
+    if (tmp)
+        cout << "Palindrome";
 }

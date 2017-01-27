@@ -16,6 +16,8 @@ public:
     int maxElementOfArray();
     void bubbleSortInc();
     void bubbleSortDec();
+    ~MyArray();
+    void isPalindrome();
 private:
     short *array;
     int size;
