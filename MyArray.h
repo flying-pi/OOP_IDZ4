@@ -12,7 +12,10 @@ public:
     MyArray(short int * array, int size);
     void inputFromKeyboard();
     void generationElements();
-
+    int minElementOfArray();
+    int maxElementOfArray();
+    void bubbleSortInc();
+    void bubbleSortDec();
 private:
     short *array;
     int size;
