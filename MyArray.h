@@ -10,6 +10,8 @@ class MyArray {
 
 public:
     MyArray(short int * array, int size);
+    void inputFromKeyboard();
+    void generationElements();
 
 private:
     short *array;
