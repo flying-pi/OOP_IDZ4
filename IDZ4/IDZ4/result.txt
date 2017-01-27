@@ -1,0 +1,9 @@
+Input size of array: 10
+-20963 -19569 -7569 -7395 -26536 -2749 -16040 -5491 -6968 -1546 
+
+max element: -26536
+min element: -1546
+Not palindrome
+-26536 -20963 -19569 -16040 -7569 -7395 -6968 -5491 -2749 -1546 
+-1546 -2749 -5491 -6968 -7395 -7569 -16040 -19569 -20963 -26536 
+catch overflow when calculate sum of array items
