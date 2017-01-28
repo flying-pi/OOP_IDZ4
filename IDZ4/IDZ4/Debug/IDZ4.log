@@ -1,7 +1,4 @@
-﻿  main.cpp
-  OutPrinter.cpp
-  MyArray.cpp
+﻿  MyArray.cpp
 y:\dev\c++\oop_idz4\myarray.cpp(33): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
   IDZ4.vcxproj -> Y:\dev\c++\OOP_IDZ4\IDZ4\Debug\IDZ4.exe
   IDZ4.vcxproj -> Y:\dev\c++\OOP_IDZ4\IDZ4\Debug\IDZ4.pdb (Full PDB)

@@ -133,7 +133,7 @@ short int MyArray::getSum() {
 
     }
 
-    output->printMessage("sum of array == ");
+    output->printMessage("sum of array: ");
     output->printMessage(result);
     output->printMessage("\n");
     return result;
