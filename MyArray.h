@@ -7,10 +7,13 @@
 
 
 #include <fstream>
+#include "OutPrinter.h"
 
 class MyArray {
 
 public:
+    //не коректно задано задание поскольку в классе,  отвечающем за работу с массивом пристсвует
+    // необходимость работы с файлами. Нарушение принципа единичной ответствености
     MyArray(short int *array, int size);
 
     void inputFromKeyboard();
@@ -33,7 +36,7 @@ public:
 
 	short int getSum();
 
-    std::ofstream output;
+    PrintComposer *output;
 private:
 
     short *array;

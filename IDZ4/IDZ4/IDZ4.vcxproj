@@ -148,9 +148,11 @@
   <ItemGroup>
     <ClCompile Include="..\..\main.cpp" />
     <ClCompile Include="..\..\MyArray.cpp" />
+    <ClCompile Include="..\..\OutPrinter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\MyArray.h" />
+    <ClInclude Include="..\..\OutPrinter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

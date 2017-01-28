@@ -11,29 +11,28 @@ using namespace std;
 MyArray::MyArray(short int *array, int size) {
     this->array = array;
     this->size = size;
-    output.open("./result.txt");
-    if(!(output.is_open())) {
-        output << "Error opening file!";
-        cout << "Error opening file!";
-        exit(1);
-    }
+    output = new PrintComposer();
+    output->addConsolePrinter();
+    output->addFilePrinter();
 }
 
 void MyArray::inputFromKeyboard() {
-    cout << "Input your array:\n";
-    output << "Input your array:\n";
+    output->printMessage("Input your array:\n");
     for (int i = 0; i < this->size; i++) {
-        cout << "[" << i << "] = ";
-        output << "[" << i << "] = ";
+        output->printMessage("[");
+        output->printMessage(i);
+        output->printMessage("] :: ");
         cin >> this->array[i];
-        output << this->array[i] << '\n';
+
+        output->printMessage(this->array[i]);
+        output->printMessage("\n");
     }
 }
 
 void MyArray::generationElements() {
     srand(time(NULL));
     for (int i = 0; i < this->size; i++) {
-        this->array[i] = 32767 + rand() % 65535;
+        this->array[i] = rand() % 65535 - 32767;
     }
 }
 
@@ -80,8 +79,7 @@ void MyArray::bubbleSortDec() {
 }
 
 MyArray::~MyArray() {
-    delete[] this->array;
-    output.close();
+    delete output;
 
 }
 
@@ -90,56 +88,53 @@ void MyArray::isPalindrome() {
     for (int leftPos = 0, rightPos = this->size - 1; leftPos < this->size / 2; leftPos++, rightPos--) {
         if (this->array[leftPos] != this->array[rightPos]) {
             tmp = false;
-            cout << "Not palindrome\n";
-            output << "Not palindrome\n";
+            output->printMessage("Not palindrome\n");
             break;
         }
     }
     if (tmp) {
-        cout << "Palindrome\n";
-        output << "Palindrome\n";
+        output->printMessage("Palindrome\n");
     }
 }
 
 void MyArray::outputArray() {
-    for(int i = 0; i < this->size; i++){
-        cout << this->array[i] << " ";
-        output << this->array[i] << " ";
+    for (int i = 0; i < this->size; i++) {
+        output->printMessage(this->array[i]);
+        output->printMessage(" ");
     }
-    cout << '\n';
-    output << '\n';
+
+    output->printMessage("\n");
 
 }
 
-short int MyArray::
-getSum()
-{
-	short int result = 0;
-	for (int i = 0;i < size;i++) {
-		short int a = array[i];
-		char isOverflow = 0;
-		cout << result << endl;
-		__asm
-		{
-			mov ax, a
-			mov cx, result
-			add ax, cx
-			jo overwlow
-			mov result, ax
-			jmp done
-			overwlow :
-			mov isOverflow, 1
-				done :
+short int MyArray::getSum() {
+    short int result = 0;
+    for (int i = 0; i < size; i++) {
+        short int a = array[i];
+        char isOverflow = 0;
+        cout << result << endl;
+        __asm
+        {
+        mov ax, a
+        mov cx, result
+        add ax, cx
+        jo overwlow
+        mov result, ax
+        jmp done
+        overwlow :
+        mov isOverflow, 1
+        done :
 
-		}
-		if (isOverflow == 1) {
-			cout << "catch overflow when calculate sum of array items\n";
-			output << "catch overflow when calculate sum of array items\n";
-			return result;
-		}
-	
-	}
-	cout << "sum of array == " << result << "\n";
-	output << "sum of array == " << result << "\n";
-	return 0;
+        }
+        if (isOverflow == 1) {
+            output->printMessage("catch overflow when calculate sum of array items\n");
+            return result;
+        }
+
+    }
+
+    output->printMessage("sum of array == ");
+    output->printMessage(result);
+    output->printMessage("\n");
+    return result;
 }
